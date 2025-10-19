@@ -22,7 +22,7 @@ All processing was implemented in **MATLAB**, using custom functions for convolu
 | `normalize.m` | Normalizes pixel intensities to a given range |
 | `threshold.m` | Applies an edge significance threshold |
 | `report/Askisi1.pdf` | Original report in Greek |
-| `images/grid.png`, `images/Lenna.png` | Input images |
+| `report/images/grid.png`, `report/images/Lenna.png` | Input images |
 
 ---
 
@@ -40,7 +40,10 @@ All processing was implemented in **MATLAB**, using custom functions for convolu
 
 ## 1. Gaussian Smoothing
 
-Both images were converted to grayscale and convolved with a 5×5 Gaussian filter (σ = 5/6).
+Both images are grayscale and convolved with a 5×5 Gaussian filter (σ = 5/6).
+|   |   |
+|---|---|
+|![grid-smooth](report/images/image003.png)|![lenna-smooth](report/images/image004.png)|
 
 **Observations:**
 - The filtered images appear **smoother** and **less noisy**.
@@ -51,22 +54,32 @@ Both images were converted to grayscale and convolved with a 5×5 Gaussian filte
 ## 2. Horizontal Edge Detection (Sobel 3×3)
 
 The Sobel filter for horizontal edges was applied:
-\[
+$$
 G_y = 
 \begin{bmatrix}
 1 & 2 & 1 \\
 0 & 0 & 0 \\
 -1 & -2 & -1
 \end{bmatrix}
-\]
+$$
 
 Two types of normalization were performed:
 
 ### a. Normalization to [0, 255]
+
+|   |   |
+|---|---|
+|![image008](report/images/image008.png)|![image009](report/images/image009.png)|
+
 - Points with higher gradient magnitude appear **white**, negative gradients appear **black**.
 - Gaussian smoothing reduces noise and produces clearer edge maps.
 
 ### b. Normalization with Zero Gradient = 0
+
+|   |   |
+|---|---|
+|![image012](report/images/image012.png)|![image013](report/images/image013.png)|
+
 - Taking the absolute value makes edges **uniformly bright** regardless of direction.
 - However, the **direction information** is lost (e.g., grid lines appear double).
 
@@ -75,14 +88,18 @@ Two types of normalization were performed:
 ## 3. Vertical Edge Detection (Sobel 3×3)
 
 For vertical edges, the transposed Sobel filter was used:
-\[
+$$
 G_x = 
 \begin{bmatrix}
 -1 & 0 & +1 \\
 -2 & 0 & +2 \\
 -1 & 0 & +1
 \end{bmatrix}
-\]
+$$
+
+|   |   |
+|---|---|
+|![image017](report/images/image017.png)|![image018](report/images/image018.png)|
 
 **Observations:**
 - The same conclusions apply: normalization improves contrast.
@@ -94,13 +111,18 @@ G_x =
 
 To detect edges regardless of orientation, both Sobel outputs were combined:
 
-\[
+$$
 G = \sqrt{H^2 + V^2}
-\]
+$$
+
+|   |   |
+|---|---|
+|![image022](report/images/image022.png)|![image023](report/images/image023.png)|
+
 
 **Results:**
 - The combined edge magnitude image clearly highlights object boundaries.
-- Gaussian smoothing produces **fewer spurious edges** and **cleaner contours**, especially noticeable in the *Lenna* image.
+- Gaussian smoothing produces **cleaner contours**, especially noticeable in the *Lenna* image.
 
 ---
 
@@ -109,6 +131,11 @@ G = \sqrt{H^2 + V^2}
 A **threshold T = 40** was applied:
 - Pixels with intensity > 40 are kept.
 - Others are set to 0 (black).
+
+|   |   |
+|---|---|
+|![image026](report/images/image026.png)|![image027](report/images/image027.png)|
+
 
 **Observations:**
 - In the *grid* image, the threshold has minimal effect.
@@ -132,3 +159,4 @@ Run the main script in MATLAB:
 
 ```matlab
 >> project1
+```
