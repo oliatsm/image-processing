@@ -1,7 +1,8 @@
 clc;
 clear all;
 
-I1=imread('images/grid.png');
+I1=imread('images/grid.png'); %loads grid as logical
+I1=im2uint8(I1);              %convert grid to uint8
 I2=imread('images/Lenna.png');
 %%
 %erotima 1
