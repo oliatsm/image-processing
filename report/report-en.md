@@ -48,7 +48,7 @@ Then, for displaying the result, we proceed as follows:
 
 Points with a larger gradient magnitude are shown in white, and those with the opposite gradient are shown in black.
 
-**Results after Gaussian smoothing:**
+Results after Gaussian smoothing:
 |   |   |
 |---|---|
 |![image008](images/image008.png)|![image009](images/image009.png)|
@@ -91,7 +91,7 @@ The results are shown below:
 
 
 
-**Normalization at 0:**
+Normalization at 0:
 |   |   |
 |---|---|
 |![image017](images/image017.png)|![image018](images/image018.png)|
@@ -115,7 +115,7 @@ The resulting images are as follows:
 |![image020](images/image020.png)|![image021](images/image021.png)|
 
 
-**With Gaussian smoothing:**
+With Gaussian smoothing:
 |   |   |
 |---|---|
 |![image022](images/image022.png)|![image023](images/image023.png)|
@@ -133,7 +133,7 @@ This retains the strong object edges and reduces noise.
 |---|---|
 |![image024](images/image024.png)|![image025](images/image025.png)|
 
-**With Gaussian smoothing:**
+With Gaussian smoothing:
 |   |   |
 |---|---|
 |![image026](images/image026.png)|![image027](images/image027.png)|
