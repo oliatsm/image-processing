@@ -54,6 +54,7 @@ Both images are grayscale and convolved with a 5×5 Gaussian filter (σ = 5/6).
 ## 2. Horizontal Edge Detection (Sobel 3×3)
 
 The Sobel filter for horizontal edges was applied:
+
 $$
 G_y = 
 \begin{bmatrix}
@@ -88,6 +89,7 @@ Two types of normalization were performed:
 ## 3. Vertical Edge Detection (Sobel 3×3)
 
 For vertical edges, the transposed Sobel filter was used:
+
 $$
 G_x = 
 \begin{bmatrix}
@@ -159,4 +161,5 @@ Run the main script in MATLAB:
 
 ```matlab
 >> project1
+
 ```
